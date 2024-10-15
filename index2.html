@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Key Press Info</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 100px;
+        }
+        #keyCode, #keyValue {
+            font-size: 1.5em;
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Press any key to see the code</h1>
+    <div>
+        <p>Key Code: <span id="keyCode">-</span></p>
+        <p>Key Value: <span id="keyValue">-</span></p>
+    </div>
+
+    <script>
+        document.addEventListener('keydown', function(event) {
+            document.getElementById('keyCode').innerText = event.keyCode;
+            document.getElementById('keyValue').innerText = event.key;
+        });
+    </script>
+
+</body>
+</html>

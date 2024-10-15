@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        form {
+            display: inline-block;
+            text-align: left;
+        }
+        label, input {
+            display: block;
+            margin-bottom: 10px;
+        }
+        input[type="text"], input[type="password"] {
+            width: 200px;
+            padding: 5px;
+        }
+        .error {
+            color: red;
+            font-size: 0.9em;
+        }
+        button {
+            padding: 8px 15px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Login Form</h1>
+    <form onsubmit="return validateForm()">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username">
+        <span id="usernameError" class="error"></span>
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password">
+        <span id="passwordError" class="error"></span>
+
+        <button type="submit">Submit</button>
+    </form>
+
+    <script>
+        function validateForm() {
+            // Get the values of the inputs
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            let isValid = true;
+
+            // Clear previous error messages
+            document.getElementById('usernameError').innerText = '';
+            document.getElementById('passwordError').innerText = '';
+
+            // Validate username (at least 5 characters)
+            if (username.length < 5) {
+                document.getElementById('usernameError').innerText = 'Username must be at least 5 characters long.';
+                isValid = false;
+            }
+
+            // Validate password (at least 8 characters)
+            if (password.length < 8) {
+                document.getElementById('passwordError').innerText = 'Password must be at least 8 characters long.';
+                isValid = false;
+            }
+
+            // Return false to prevent form submission if validation fails
+            return isValid;
+        }
+    </script>
+
+</body>
+</html>
